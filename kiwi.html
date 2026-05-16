@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16934078239"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-16934078239');
+</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <title>SRT Garage — Every Dodge SRT Model Ever Made</title>
+    <meta name="description" content="A complete history and archive of every Dodge SRT performance vehicle, from the Viper and Neon SRT-4 to the Hellcat, Demon, and Demon 170." />
+    <link rel="icon" type="image/png" href="/images/srt-favicon.png" />
+    <link rel="apple-touch-icon" href="/images/srt-favicon.png" />
+    <script>
+      (function(){
+        var DESIRED = 'SRT Garage — Every Dodge SRT Model Ever Made';
+        try { document.title = DESIRED; } catch(_) {}
+        try {
+          Object.defineProperty(document, 'title', {
+            configurable: true,
+            get: function(){ return DESIRED; },
+            set: function(_v){ /* locked */ }
+          });
+        } catch(_) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      (function () {
+        if (/\/(index|kiwi)(\.html)?$/.test(window.location.pathname)) {
+          var newPath = window.location.pathname.replace(/\/(index|kiwi)(\.html)?$/, '/');
+          window.history.replaceState(null, '', newPath + window.location.search + window.location.hash);
+        }
+      })();
+      (function () {
+        var overlay, iframe, prevOverflow;
+        function ensure() {
+          if (overlay) return;
+          overlay = document.createElement('div');
+          overlay.id = 'kiwi-game-overlay';
+          overlay.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:#000;display:none';
+          iframe = document.createElement('iframe');
+          iframe.style.cssText = 'width:100%;height:100%;border:0;display:block;background:#000';
+          iframe.setAttribute('allow', 'fullscreen; autoplay; clipboard-read; clipboard-write; gamepad');
+          iframe.setAttribute('allowfullscreen', '');
+          iframe.addEventListener('load', function () {
+            try {
+              var p = iframe.contentWindow.location.pathname;
+              if (p === '/' || p === '/index.html') {
+                window.kiwiClose();
+              }
+            } catch (_) {}
+          });
+          overlay.appendChild(iframe);
+          document.body.appendChild(overlay);
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && overlay.style.display !== 'none') window.kiwiClose();
+          });
+        }
+        var origRAF = window.requestAnimationFrame;
+        var origSI  = window.setInterval;
+        var rootEl;
+        function pauseHost(){
+          rootEl = rootEl || document.getElementById('root');
+          if (rootEl) rootEl.style.visibility = 'hidden';
+          window.requestAnimationFrame = function(){ return 0; };
+          window.setInterval = function(){ return 0; };
+        }
+        function resumeHost(){
+          if (rootEl) rootEl.style.visibility = '';
+          window.requestAnimationFrame = origRAF;
+          window.setInterval = origSI;
+          try { if (typeof window.__kiwiBgKick === 'function') window.__kiwiBgKick(); } catch (_) {}
+        }
+        window.kiwiOpen = function (url, title) {
+          ensure();
+          iframe.src = url;
+          overlay.style.display = 'block';
+          prevOverflow = document.documentElement.style.overflow;
+          document.documentElement.style.overflow = 'hidden';
+          pauseHost();
+          if (title) { try { document.title = title; } catch (_) {} }
+        };
+        window.kiwiClose = function () {
+          if (!overlay) return;
+          overlay.style.display = 'none';
+          iframe.src = 'about:blank';
+          document.documentElement.style.overflow = prevOverflow || '';
+          resumeHost();
+          try { document.title = 'SRT Garage — Every Dodge SRT Model Ever Made'; } catch (_) {}
+        };
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-RED04.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-RED01.css">
+    <link rel="stylesheet" href="/homepage-extras.css?v=26">
+    <script>
+      (function () {
+        var INSERTED = false;
+        function buildAd() {
+          var wrap = document.createElement('div');
+          wrap.className = 'kiwi-home-topad';
+          var inner = document.createElement('div');
+          inner.className = 'kiwi-home-topad-inner';
+          var iframe = document.createElement('iframe');
+          iframe.src = 'https://bmwguide.org/performance.html';
+          iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-popups allow-modals');
+          iframe.setAttribute('allow', 'fullscreen; autoplay; clipboard-read; clipboard-write; gamepad');
+          iframe.style.cssText = 'position:absolute;top:0;left:0;width:1024px;height:768px;border:0;display:block;';
+          inner.appendChild(iframe);
+          wrap.appendChild(inner);
+          return wrap;
+        }
+        function tryInsert() {
+          if (INSERTED) return true;
+          var grid = document.querySelector('[data-testid="grid-games"], [data-testid="grid-skeleton"]');
+          if (!grid || !grid.parentNode) return false;
+          var ad = buildAd();
+          grid.parentNode.insertBefore(ad, grid);
+          INSERTED = true;
+          return true;
+        }
+        function start() {
+          if (tryInsert()) return;
+          var mo = new MutationObserver(function () {
+            if (tryInsert()) mo.disconnect();
+          });
+          mo.observe(document.body, { childList: true, subtree: true });
+          setTimeout(function () { mo.disconnect(); }, 15000);
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', start);
+        } else {
+          start();
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <style>
+      html, body { background: #050000 !important; }
+      ins.adsbygoogle,
+      iframe[id^="google_ads_iframe"],
+      iframe[src*="googlesyndication"],
+      iframe[src*="gamemonetize"],
+      iframe[src*="gamedistribution"],
+      div[id*="adsbygoogle"],
+      [data-ad-slot],
+      [data-ad-client] {
+        border: 1px solid #fc0303 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 0 18px rgba(252,3,3,0.55), 0 0 4px rgba(255,80,80,0.35) inset !important;
+        background: #000 !important;
+        box-sizing: border-box !important;
+      }
+      html, body { background: #000 !important; }
+      #kiwi-bg-canvas {
+        position: fixed; inset: 0; width: 100vw; height: 100vh;
+        z-index: 0; pointer-events: none; display: block;
+        background: transparent;
+      }
+      #root { position: relative; z-index: 1; background: transparent !important; }
+      footer { position: relative; z-index: 2; }
+      /* React's main containers paint opaque backgrounds that hide our
+         animated canvas. Force them transparent so the canvas (z-index:0,
+         behind #root) is visible through the empty layout space. */
+      #root, #root > *, #root main, #root main > *, main {
+        background: transparent !important;
+        background-color: transparent !important;
+      }
+    </style>
+    <canvas id="kiwi-bg-canvas"></canvas>
+    <script>
+      // Hide React's injected full-viewport background layer (a fixed/inset
+      // div, sometimes with its own canvas) so our matrix-rain canvas is
+      // visible. Must survive SPA route changes that remount the layer
+      // without aria-hidden.
+      (function hideReactBg(){
+        function sweep(){
+          var nodes = document.querySelectorAll('#root div');
+          for (var i=0; i<nodes.length; i++){
+            var n = nodes[i];
+            if (n.dataset.kiwiHidden === '1') continue;
+            var s = n.getAttribute('style') || '';
+            if (s.indexOf('fixed') !== -1 && s.indexOf('inset') !== -1) {
+              n.style.display = 'none';
+              n.dataset.kiwiHidden = '1';
+            }
+          }
+        }
+        sweep();
+        new MutationObserver(sweep).observe(document.documentElement, {childList:true, subtree:true, attributes:true, attributeFilter:['style','aria-hidden','class']});
+      })();
+    </script>
+    <script>
+      (function(){
+        try {
+        var c = document.getElementById('kiwi-bg-canvas');
+        var ctx = c.getContext('2d');
+        var W=0, H=0, dpr = Math.min(window.devicePixelRatio||1, 2);
+        function resize(){
+          W = c.width = innerWidth * dpr;
+          H = c.height = innerHeight * dpr;
+          c.style.width = innerWidth+'px';
+          c.style.height = innerHeight+'px';
+        }
+        resize(); addEventListener('resize', resize);
+
+        // matrix-style red rain on pure black: big bright vertical streaks
+        var COLS = 0, drops = [], FONT = 18;
+        var GLYPHS = '01░▒▓█▌▐▀▄◆◇◢◣◤◥▲▼◀▶';
+        var GLEN = GLYPHS.length;
+        function mkDrop(fromTop){
+          return {
+            y: fromTop ? -Math.random()*innerHeight : -Math.random()*innerHeight*0.4,
+            speed: 2 + Math.random()*5,
+            len: 10 + Math.floor(Math.random()*26),
+            seed: (Math.random()*1e6)|0,
+            // glitch streaks are extra bright/white-hot every so often
+            glitch: Math.random() < 0.08,
+            // per-drop pulse phase for subtle head flicker
+            phase: Math.random()*6.283
+          };
+        }
+        function initRain(){
+          FONT = Math.max(14, Math.round(innerWidth/90));
+          COLS = Math.ceil(innerWidth / FONT);
+          drops.length = 0;
+          for (var i=0;i<COLS;i++) drops.push(mkDrop(true));
+        }
+        initRain();
+        addEventListener('resize', initRain);
+
+        // pre-rendered radial vignette overlay (darkens corners, deepens mood)
+        var vignette = null;
+        function buildVignette(){
+          var vc = document.createElement('canvas');
+          vc.width = innerWidth; vc.height = innerHeight;
+          var vx = vc.getContext('2d');
+          var g = vx.createRadialGradient(
+            innerWidth/2, innerHeight/2, Math.min(innerWidth,innerHeight)*0.25,
+            innerWidth/2, innerHeight/2, Math.max(innerWidth,innerHeight)*0.75
+          );
+          g.addColorStop(0, 'rgba(0,0,0,0)');
+          g.addColorStop(0.6, 'rgba(0,0,0,0.35)');
+          g.addColorStop(1, 'rgba(0,0,0,0.85)');
+          vx.fillStyle = g;
+          vx.fillRect(0,0,innerWidth,innerHeight);
+          // faint red top-glow for atmosphere
+          var rg = vx.createRadialGradient(
+            innerWidth*0.5, -innerHeight*0.15, 0,
+            innerWidth*0.5, -innerHeight*0.15, innerHeight*0.9
+          );
+          rg.addColorStop(0, 'rgba(255,0,40,0.18)');
+          rg.addColorStop(1, 'rgba(255,0,40,0)');
+          vx.globalCompositeOperation = 'lighter';
+          vx.fillStyle = rg;
+          vx.fillRect(0,0,innerWidth,innerHeight);
+          vignette = vc;
+        }
+        buildVignette();
+        addEventListener('resize', buildVignette);
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        var __runToken = 0;
+        var __t = 0;
+        function frame(token){
+          if (token !== __runToken) return;
+          __t++;
+
+          // hard black wipe (preserves original "crisp" look, no smear trails)
+          ctx.fillStyle = '#000';
+          ctx.fillRect(0,0,innerWidth,innerHeight);
+
+          // matrix-style red rain
+          ctx.font = 'bold ' + FONT + 'px ui-monospace, Menlo, Consolas, monospace';
+          ctx.textBaseline = 'top';
+          for (var i=0;i<COLS;i++){
+            var d = drops[i];
+            d.y += d.speed;
+            // subtle head brightness flicker (0.85..1.0)
+            var flick = 0.92 + Math.sin(__t*0.18 + d.phase)*0.06 + (Math.random()*0.04 - 0.02);
+            var headBoost = d.glitch ? 1.25 : 1.0;
+
+            for (var k=0; k<d.len; k++){
+              var yy = d.y - k*FONT;
+              if (yy < -FONT || yy > innerHeight) continue;
+              // re-roll glyph occasionally so streams "scramble" instead of looking static
+              var jitter = ((__t>>2) + i) & 7;
+              var ch = GLYPHS[(d.seed + i*7 + k*3 + (d.y|0) + (k===0 ? jitter : 0)) % GLEN];
+              if (k === 0) {
+                ctx.fillStyle = d.glitch ? '#fff' : 'rgba(255,255,255,' + flick + ')';
+                ctx.shadowColor = d.glitch ? '#ff6080' : '#ff0030';
+                ctx.shadowBlur = 14 * headBoost;
+              } else if (k < 3) {
+                ctx.fillStyle = 'rgba(255,' + (60 + k*20) + ',' + (90 + k*10) + ',0.95)';
+                ctx.shadowColor = '#ff0030';
+                ctx.shadowBlur = 6;
+              } else {
+                var fade = 1 - (k / d.len);
+                // curved falloff for a more dramatic tail
+                fade = fade*fade;
+                ctx.fillStyle = 'rgba(255,0,30,' + (fade*0.95) + ')';
+                ctx.shadowBlur = 0;
+              }
+              ctx.fillText(ch, i*FONT, yy);
+            }
+            ctx.shadowBlur = 0;
+            if (d.y - d.len*FONT > innerHeight){
+              drops[i] = mkDrop(false);
+            }
+          }
+
+          // overlay vignette + top red glow (drawn last, over the rain)
+          if (vignette) ctx.drawImage(vignette, 0, 0, innerWidth, innerHeight);
+
+          // occasional faint horizontal scanline sweep for CRT vibe
+          var scanY = ((__t * 2) % (innerHeight + 80)) - 40;
+          var sg = ctx.createLinearGradient(0, scanY-20, 0, scanY+20);
+          sg.addColorStop(0, 'rgba(255,0,40,0)');
+          sg.addColorStop(0.5, 'rgba(255,0,40,0.06)');
+          sg.addColorStop(1, 'rgba(255,0,40,0)');
+          ctx.fillStyle = sg;
+          ctx.fillRect(0, scanY-20, innerWidth, 40);
+
+          requestAnimationFrame(function(){ frame(token); });
+        }
+        function kick(){ __runToken++; var t = __runToken; requestAnimationFrame(function(){ frame(t); }); }
+        window.__kiwiBgKick = kick;
+        kick();
+        } catch (e) { /* swallow */ }
+      })();
+    </script>
+    <div id="root"></div>
+    <footer style="position:relative;z-index:10;text-align:center;padding:24px 16px 32px;color:#7a7a7a;font-family:Inter,sans-serif;font-size:13px;">
+      <a href="/$/dmca" style="color:#ffffff;text-decoration:none;margin:0 12px;">dmca</a>
+      <a href="/$/credits" style="color:#ffffff;text-decoration:none;margin:0 12px;">credits</a>
+    </footer>
+  </body>
+</html>

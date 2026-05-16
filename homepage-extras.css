@@ -1,0 +1,157 @@
+/* extra red accents across the page */
+body, html {
+  background-color: #000 !important;
+}
+
+/* the React bundle uses hsl(var(--background)) where --background is set to
+   the literal string "red", which paints a solid red layer on top of our
+   animated canvas. Force every container that uses it to be transparent so
+   the canvas behind #root is actually visible. */
+body,
+#root,
+.bg-background,
+[class*="bg-background"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* React bundle injects its own full-viewport background canvas inside a
+   fixed/inset div (sometimes aria-hidden, sometimes not on SPA re-renders).
+   Hide any such overlay so our matrix-rain canvas (in kiwi.html) stays
+   visible across route changes. */
+#root div[aria-hidden="true"],
+#root div[style*="position:fixed"][style*="inset:0"],
+#root div[style*="position: fixed"][style*="inset: 0"],
+#root div[style*="position:fixed"][style*="inset: 0"],
+#root div[style*="position: fixed"][style*="inset:0"] {
+  display: none !important;
+}
+
+/* Cursor trail dots are appended to <body> with inline style containing
+   `animation:kTrail`. Suppress them entirely. */
+div[style*="animation:kTrail"],
+div[style*="animation: kTrail"] {
+  display: none !important;
+}
+.kiwi-search,
+input[placeholder="search games"] {
+  border: 1px solid rgba(252, 3, 3, 0.55) !important;
+  box-shadow: 0 0 12px rgba(252, 3, 3, 0.35) !important;
+}
+input[placeholder="search games"]:focus {
+  border-color: #fc0303 !important;
+  box-shadow: 0 0 18px rgba(252, 3, 3, 0.7) !important;
+  outline: none !important;
+}
+/* dashboard pills (clock/weather/ping/battery) */
+nav button, .kiwi-pill, [class*="pill"] {
+  border-color: rgba(252, 3, 3, 0.45) !important;
+}
+
+/* section headings */
+h2 {
+  color: #ff5a5a !important;
+  text-shadow: 0 0 12px rgba(252, 3, 3, 0.45);
+}
+
+/* 970x250 ad slot above the games grid on the home page */
+.kiwi-home-topad {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: -60px auto 50px auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+.kiwi-home-topad-inner {
+  position: relative;
+  width: 970px;
+  max-width: 100%;
+  height: 250px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #0a0202;
+  border: 1px solid #fc0303;
+  border-radius: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6),
+              0 0 18px rgba(252, 3, 3, 0.55),
+              0 0 4px rgba(255, 80, 80, 0.35) inset;
+}
+.kiwi-home-topad-inner iframe {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 1024px !important;
+  height: 768px !important;
+  border: 0;
+  border-radius: 0 !important;
+  display: block;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.kiwi-home-topad-inner ins.adsbygoogle,
+.kiwi-home-topad-inner ins.adsbygoogle * {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 250px !important;
+  border: 0;
+  border-radius: 0 !important;
+  display: block;
+}
+.kiwi-home-topad-inner iframe::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+@media (max-width: 900px) {
+  .kiwi-home-topad { display: none; }
+}
+
+/* favorite/unfavorite buttons on game cards (home page) */
+button[aria-label="favorite"],
+button[aria-label="unfavorite"] {
+  background: rgba(18, 4, 6, 0.88) !important;
+  border: 1px solid rgba(252, 3, 3, 0.55) !important;
+  color: #ffc8c8 !important;
+  transition: background .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease !important;
+}
+
+button[aria-label="favorite"]:hover {
+  background: rgba(30, 4, 6, 0.95) !important;
+  border-color: #fc0303 !important;
+  color: #fff !important;
+  box-shadow: 0 0 10px rgba(252, 3, 3, 0.5) !important;
+}
+
+button[aria-label="unfavorite"] {
+  background: rgba(40, 0, 0, 0.92) !important;
+  border-color: #fc0303 !important;
+  color: #fc0303 !important;
+  box-shadow: 0 0 12px rgba(252, 3, 3, 0.6) !important;
+}
+
+/* skeleton shimmer behind game card thumbnails until the image loads */
+@keyframes kiwiCardImgShimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+img[loading="lazy"] {
+  background-color: rgba(252, 3, 3, 0.05);
+  background-image: linear-gradient(
+    90deg,
+    rgba(252, 3, 3, 0.05) 0,
+    rgba(252, 3, 3, 0.22) 50%,
+    rgba(252, 3, 3, 0.05) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 400px 100%;
+  animation: kiwiCardImgShimmer 1.4s ease-in-out infinite;
+}

@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SRT Garage — Every Dodge SRT Model Ever Made</title>
+<link rel="icon" type="image/png" href="/images/srt-favicon.png" />
+<link rel="apple-touch-icon" href="/images/srt-favicon.png" />
+<meta name="description" content="A complete history and archive of every Dodge SRT performance vehicle, from the Viper and Neon SRT-4 to the Hellcat, Demon, and Demon 170." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Racing+Sans+One&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a;
+    --bg-2:#111;
+    --panel:#161616;
+    --panel-2:#1d1d1d;
+    --border:#262626;
+    --text:#f5f5f5;
+    --muted:#9a9a9a;
+    --red:#e10600;
+    --red-dark:#a10400;
+    --accent:#ffd400;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  /* Top bar */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,10,10,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .topbar-inner{
+    max-width:1280px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:14px;
+    font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:20px;letter-spacing:4px;text-transform:uppercase;
+  }
+  .brand-mark{
+    height:78px;display:flex;align-items:center;margin:-22px 0;
+    filter:drop-shadow(0 4px 14px rgba(225,6,0,.5));
+  }
+  .brand-mark img{height:100%;width:auto;display:block}
+  @media (max-width:720px){
+    .brand-mark{height:58px;margin:-14px 0}
+  }
+  .nav{display:flex;gap:28px;align-items:center}
+  .nav-lock{
+    display:grid;place-items:center;width:38px;height:38px;
+    border:1px solid var(--border);border-radius:8px;
+    color:var(--muted);transition:all .2s;
+  }
+  .nav-lock:hover{
+    color:var(--red);border-color:var(--red);
+    box-shadow:0 0 0 3px rgba(225,6,0,.18);
+  }
+  .nav a{
+    font-size:14px;color:var(--muted);font-weight:500;
+    transition:color .2s;
+  }
+  .nav a:hover{color:var(--text)}
+  .menu-toggle{display:none;background:none;border:0;color:#fff;font-size:22px;cursor:pointer}
+
+  /* Hero — cinematic full-bleed */
+  .hero{
+    position:relative;min-height:100vh;
+    display:flex;align-items:flex-end;overflow:hidden;
+    background:#000;
+    padding:0 24px 80px;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;
+    filter:saturate(1.1) contrast(1.05);
+    transform:scale(1.02);
+    animation:slowZoom 18s ease-in-out infinite alternate;
+  }
+  @keyframes slowZoom{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.15) 35%,rgba(0,0,0,.55) 70%,#0a0a0a 100%),
+      radial-gradient(800px 500px at 78% 30%, rgba(225,6,0,.22), transparent 65%),
+      linear-gradient(90deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.2) 55%,transparent 80%);
+  }
+  .hero-grid{
+    position:absolute;inset:0;z-index:1;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:80px 80px;
+    mask-image:radial-gradient(ellipse at 30% 70%,#000 10%,transparent 70%);
+  }
+  .hero-inner{
+    position:relative;z-index:2;
+    max-width:1280px;margin:0 auto;width:100%;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:'Oswald',sans-serif;
+    font-size:13px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--red);margin-bottom:22px;font-weight:700;
+  }
+  .eyebrow::before{content:"";width:48px;height:2px;background:var(--red)}
+  h1.hero-title{
+    font-family:'Oswald',sans-serif;
+    font-weight:700;font-size:clamp(48px,9vw,140px);
+    line-height:.88;letter-spacing:-2px;text-transform:uppercase;
+    text-shadow:0 4px 30px rgba(0,0,0,.7);
+    max-width:1100px;
+  }
+  h1.hero-title em{
+    font-style:italic;color:var(--red);
+    text-shadow:0 0 50px rgba(225,6,0,.55), 0 4px 30px rgba(0,0,0,.6);
+    font-family:'Oswald',sans-serif;font-weight:700;
+  }
+  .hero-sub{
+    margin-top:24px;color:#d8d8d8;
+    font-size:clamp(16px,1.4vw,20px);max-width:620px;
+    text-shadow:0 2px 10px rgba(0,0,0,.8);
+  }
+  .hero-cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 30px;border-radius:4px;
+    font-weight:700;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;
+    cursor:pointer;border:0;
+    transition:transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+    font-family:'Oswald',sans-serif;
+  }
+  .btn-primary{
+    background:var(--red);color:#fff;
+    box-shadow:0 10px 30px rgba(225,6,0,.45), inset 0 1px 0 rgba(255,255,255,.15);
+  }
+  .btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 14px 36px rgba(225,6,0,.55)}
+  .btn-ghost{
+    background:rgba(0,0,0,.4);color:var(--text);
+    border:1px solid rgba(255,255,255,.25);
+    backdrop-filter:blur(10px);
+  }
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+
+  /* Hero stat strip at bottom */
+  .hero-strip{
+    position:relative;z-index:3;
+    margin-top:60px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    border-top:1px solid rgba(255,255,255,.12);
+    border-bottom:1px solid rgba(255,255,255,.12);
+    padding:20px 0;
+    backdrop-filter:blur(8px);
+    background:rgba(0,0,0,.35);
+  }
+  .hero-strip .stat{padding:6px 24px;border-right:1px solid rgba(255,255,255,.08)}
+  .hero-strip .stat:last-child{border-right:0}
+  .hero-strip .num{
+    font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:clamp(28px,3.2vw,44px);color:#fff;line-height:1;
+  }
+  .hero-strip .num em{font-style:normal;color:var(--red)}
+  .hero-strip .lbl{
+    font-size:11px;text-transform:uppercase;letter-spacing:2.5px;
+    color:#aaa;margin-top:6px;
+  }
+
+  /* Marquee */
+  .marquee{
+    background:#000;border-bottom:1px solid var(--border);
+    overflow:hidden;padding:18px 0;position:relative;
+  }
+  .marquee-track{
+    display:flex;gap:60px;white-space:nowrap;
+    animation:scroll 40s linear infinite;
+    font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:22px;letter-spacing:3px;text-transform:uppercase;
+  }
+  .marquee-track span{color:#fff;display:inline-flex;align-items:center;gap:60px}
+  .marquee-track span::after{
+    content:"●";color:var(--red);font-size:14px;
+  }
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* Section */
+  section{padding:120px 24px;position:relative}
+  .container{max-width:1280px;margin:0 auto}
+  .section-head{
+    display:grid;grid-template-columns:1.5fr 1fr;
+    gap:60px;margin-bottom:56px;align-items:end;
+  }
+  .section-head h2{
+    font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:clamp(36px,5.5vw,72px);line-height:.95;
+    text-transform:uppercase;letter-spacing:-1.5px;
+  }
+  .section-head h2 em{font-style:italic;color:var(--red);font-weight:700}
+  .section-head p{color:var(--muted);font-size:16px;line-height:1.7}
+  @media (max-width:900px){.section-head{grid-template-columns:1fr;gap:20px}}
+
+  /* Filter chips */
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
+  .chip{
+    background:var(--panel);border:1px solid var(--border);
+    color:var(--muted);padding:8px 16px;border-radius:999px;
+    font-size:13px;cursor:pointer;font-weight:500;
+    transition:all .2s;
+  }
+  .chip:hover{color:var(--text);border-color:#444}
+  .chip.active{
+    background:var(--red);color:#fff;border-color:var(--red);
+    box-shadow:0 4px 14px rgba(225,6,0,.35);
+  }
+
+  /* Models grid */
+  .models{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px;
+  }
+  .model{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:6px;overflow:hidden;
+    display:flex;flex-direction:column;position:relative;
+    transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    cursor:pointer;
+  }
+  .model::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+    background:var(--red);transform:scaleY(0);transform-origin:bottom;
+    transition:transform .3s ease;z-index:3;
+  }
+  .model:hover{
+    transform:translateY(-6px);
+    border-color:#3a3a3a;
+    box-shadow:0 24px 50px rgba(0,0,0,.6), 0 0 0 1px rgba(225,6,0,.15);
+  }
+  .model:hover::before{transform:scaleY(1);transform-origin:top}
+  .model-art{
+    aspect-ratio:16/10;position:relative;overflow:hidden;
+    background:#0d0d0d;
+  }
+  .model-art img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;background:#0d0d0d}
+  .model:hover .model-art img{transform:scale(1.08)}
+  .model-art .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.7) 100%)}
+  .model-badge{
+    position:absolute;top:14px;left:14px;z-index:2;
+    background:rgba(0,0,0,.78);backdrop-filter:blur(8px);
+    color:var(--accent);font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:11px;letter-spacing:2.5px;padding:6px 12px;border-radius:3px;
+    text-transform:uppercase;border:1px solid rgba(255,212,0,.2);
+  }
+  .model-year-overlay{
+    position:absolute;bottom:14px;right:14px;z-index:2;
+    font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:14px;letter-spacing:2px;color:#fff;
+    text-shadow:0 2px 8px rgba(0,0,0,.9);
+  }
+  .model-body{padding:24px;display:flex;flex-direction:column;flex:1}
+  .model-year{
+    font-family:'Oswald',sans-serif;font-size:12px;color:var(--muted);
+    letter-spacing:3px;text-transform:uppercase;font-weight:600;
+  }
+  .model-name{
+    font-family:'Oswald',sans-serif;font-size:26px;line-height:1;
+    text-transform:uppercase;margin:6px 0 12px;letter-spacing:-.5px;
+  }
+  .model-desc{font-size:14px;color:var(--muted);min-height:60px;line-height:1.6}
+  .model-specs{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    margin-top:20px;padding-top:18px;border-top:1px solid var(--border);
+  }
+  .spec{text-align:left;padding-right:10px}
+  .spec b{
+    display:block;font-family:'Oswald',sans-serif;
+    font-size:18px;color:var(--text);font-weight:700;
+  }
+  .spec span{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
+  .model-cta{
+    margin-top:18px;display:flex;align-items:center;justify-content:space-between;
+    font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2.5px;
+    text-transform:uppercase;color:var(--red);font-weight:700;
+  }
+  .model-cta::after{content:"→";transition:transform .3s}
+  .model:hover .model-cta::after{transform:translateX(6px)}
+
+  /* Reveal animations */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* Featured / article */
+  .feature{
+    background:
+      radial-gradient(1000px 600px at 80% 30%, rgba(225,6,0,.15), transparent 65%),
+      linear-gradient(120deg,#180000 0%,#0a0a0a 70%);
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    position:relative;overflow:hidden;
+  }
+  .feature::before{
+    content:"DEMON";position:absolute;
+    top:50%;left:-3%;transform:translateY(-50%);
+    font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:clamp(180px,28vw,420px);
+    color:rgba(225,6,0,.04);letter-spacing:-10px;line-height:.8;
+    pointer-events:none;z-index:0;
+  }
+  .feature-grid{
+    display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;
+    position:relative;z-index:1;
+  }
+  .feature-art{
+    aspect-ratio:4/3;border-radius:6px;
+    background:linear-gradient(135deg,#1a1a1a,#000);
+    display:grid;place-items:center;
+    border:1px solid var(--border);position:relative;overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+  }
+  .feature-art img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+  .feature-art::after{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 30% 30%,rgba(225,6,0,.25),transparent 65%),
+      linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55));
+  }
+  .feature-art .demon-mark{
+    position:relative;z-index:2;
+    font-family:'Racing Sans One',sans-serif;
+    font-size:140px;color:var(--red);
+    text-shadow:0 0 50px rgba(225,6,0,.6);
+    transform:rotate(-6deg);
+  }
+  .feature h2{
+    font-family:'Oswald',sans-serif;text-transform:uppercase;
+    font-size:clamp(32px,4.5vw,56px);line-height:1;letter-spacing:-1px;
+  }
+  .feature h2 em{font-style:normal;color:var(--red)}
+  .feature p{margin-top:18px;color:var(--muted);font-size:16px}
+  .feature .stat-row{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px;
+  }
+  .feature .stat-row .stat .num{font-size:28px;color:var(--accent)}
+
+  /* Articles */
+  .articles{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+  }
+  .article{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:6px;overflow:hidden;cursor:pointer;
+    transition:transform .3s, border-color .3s, box-shadow .3s;
+  }
+  .article:hover{transform:translateY(-6px);border-color:#3a3a3a;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+  .article-img{
+    aspect-ratio:16/9;position:relative;overflow:hidden;
+    background:linear-gradient(135deg,#1a1a1a,#000);
+  }
+  .article-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+  .article:hover .article-img img{transform:scale(1.06)}
+  .article-img::after{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.55) 100%);
+  }
+  .article-img .category{
+    position:absolute;bottom:14px;left:14px;z-index:2;
+    background:var(--red);color:#fff;padding:5px 10px;border-radius:4px;
+    font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  }
+  .article-body{padding:22px}
+  .article-meta{
+    font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;
+  }
+  .article h3{
+    font-family:'Oswald',sans-serif;font-size:22px;text-transform:uppercase;
+    margin:8px 0 12px;line-height:1.15;
+  }
+  .article p{color:var(--muted);font-size:14px}
+  .article a.read{
+    margin-top:14px;display:inline-flex;align-items:center;gap:6px;
+    color:var(--red);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;
+  }
+  .article a.read:hover{gap:10px;transition:gap .2s}
+
+  /* Timeline */
+  .timeline{
+    position:relative;margin-top:40px;padding-left:30px;
+  }
+  .timeline::before{
+    content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,var(--red),transparent);
+  }
+  .tl-item{position:relative;padding:16px 0 30px;}
+  .tl-item::before{
+    content:"";position:absolute;left:-28px;top:22px;
+    width:14px;height:14px;border-radius:50%;
+    background:var(--red);box-shadow:0 0 0 4px rgba(225,6,0,.2);
+  }
+  .tl-year{
+    font-family:'Oswald',sans-serif;color:var(--accent);
+    font-size:14px;letter-spacing:3px;text-transform:uppercase;
+  }
+  .tl-title{
+    font-family:'Oswald',sans-serif;font-size:22px;
+    text-transform:uppercase;margin:4px 0 8px;
+  }
+  .tl-text{color:var(--muted);font-size:15px;max-width:780px}
+
+  /* Modal */
+  .modal{
+    position:fixed;inset:0;z-index:100;
+    background:rgba(0,0,0,.85);
+    display:none;align-items:center;justify-content:center;
+    padding:24px;backdrop-filter:blur(6px);
+  }
+  .modal.open{display:flex}
+  .modal-card{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:16px;max-width:880px;width:100%;
+    max-height:88vh;overflow-y:auto;position:relative;
+  }
+  .modal-close{
+    position:absolute;top:14px;right:14px;
+    background:rgba(0,0,0,.6);border:1px solid var(--border);
+    color:#fff;width:38px;height:38px;border-radius:50%;
+    cursor:pointer;font-size:18px;
+  }
+  .modal-art{
+    aspect-ratio:21/9;
+    background:linear-gradient(135deg,#1a1a1a,#000);
+    display:grid;place-items:center;position:relative;overflow:hidden;
+    border-radius:16px 16px 0 0;
+  }
+  .modal-art::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,rgba(225,6,0,.25),transparent 70%)}
+  .modal-art svg{width:60%;position:relative;z-index:1;filter:drop-shadow(0 14px 18px rgba(0,0,0,.6))}
+  .modal-art img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:0}
+  .modal-art .modal-art-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.5))}
+  .modal-body{padding:32px}
+  .modal-body .year{font-family:'Oswald',sans-serif;color:var(--accent);letter-spacing:3px;font-size:14px;text-transform:uppercase}
+  .modal-body h2{
+    font-family:'Oswald',sans-serif;font-size:38px;
+    text-transform:uppercase;margin:6px 0 18px;
+  }
+  .modal-body p{color:#cfcfcf;margin-bottom:14px;font-size:15px;line-height:1.7}
+  .modal-specs{
+    margin-top:22px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  }
+  .modal-specs .box{
+    background:var(--panel-2);border:1px solid var(--border);
+    padding:14px;border-radius:10px;text-align:center;
+  }
+  .modal-specs .box b{display:block;font-family:'Oswald',sans-serif;font-size:22px;color:var(--red)}
+  .modal-specs .box span{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+
+  /* Newsletter */
+  .news{
+    background:
+      radial-gradient(700px 400px at 50% 0%, rgba(225,6,0,.18), transparent 65%),
+      linear-gradient(135deg,#1a0000,#0a0a0a);
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    padding:100px 24px;text-align:center;position:relative;overflow:hidden;
+  }
+  .news::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    background-size:40px 40px;
+    mask-image:radial-gradient(ellipse at center,#000 20%,transparent 70%);
+    pointer-events:none;
+  }
+  .news > *{position:relative;z-index:1}
+  .news h2{font-family:'Oswald',sans-serif;font-size:clamp(28px,4vw,44px);text-transform:uppercase}
+  .news p{color:var(--muted);margin:14px auto 28px;max-width:520px}
+  .news form{
+    display:flex;gap:10px;max-width:480px;margin:0 auto;
+  }
+  .news input{
+    flex:1;padding:14px 18px;background:var(--panel);
+    border:1px solid var(--border);color:#fff;border-radius:8px;font-size:14px;
+  }
+  .news input:focus{outline:0;border-color:var(--red)}
+  .lock-btn{
+    display:grid;place-items:center;width:48px;height:48px;flex-shrink:0;
+    background:var(--panel);border:1px solid var(--border);
+    color:var(--muted);border-radius:8px;
+    transition:all .2s;
+  }
+  .lock-btn:hover{
+    color:var(--red);border-color:var(--red);
+    box-shadow:0 0 0 3px rgba(225,6,0,.18);
+    transform:translateY(-1px);
+  }
+
+  /* Footer */
+  footer{
+    background:#050505;padding:50px 24px 30px;
+    border-top:1px solid var(--border);
+  }
+  .footer-grid{
+    max-width:1280px;margin:0 auto;
+    display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;
+  }
+  .footer-brand p{color:var(--muted);margin-top:12px;font-size:14px;max-width:340px}
+  footer h4{
+    font-family:'Oswald',sans-serif;text-transform:uppercase;
+    font-size:14px;letter-spacing:2px;margin-bottom:14px;
+  }
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  footer ul a{color:var(--muted);font-size:14px}
+  footer ul a:hover{color:var(--text)}
+  .copyright{
+    max-width:1280px;margin:40px auto 0;
+    padding-top:24px;border-top:1px solid var(--border);
+    color:var(--muted);font-size:13px;text-align:center;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-bg img{animation:none!important}
+    .marquee-track{animation:none!important}
+    .reveal{opacity:1!important;transform:none!important;transition:none!important}
+    *{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  }
+  @media (max-width:900px){
+    .feature-grid{grid-template-columns:1fr;gap:40px}
+    .hero-strip{grid-template-columns:repeat(2,1fr)}
+    .hero-strip .stat:nth-child(2){border-right:0}
+    .articles{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
+    .nav{display:none;position:absolute;top:64px;left:0;right:0;background:#0d0d0d;flex-direction:column;padding:20px;border-bottom:1px solid var(--border)}
+    .nav.open{display:flex}
+    .menu-toggle{display:block}
+    .modal-specs,.feature .stat-row{grid-template-columns:repeat(2,1fr)}
+    .modal-body h2{font-size:28px}
+    section{padding:60px 20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#" class="brand">
+      <div class="brand-mark"><img src="/images/srt-logo.png" alt="SRT" /></div>
+      GARAGE
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#models">Models</a>
+      <a href="#feature">Demon</a>
+      <a href="#articles">Articles</a>
+      <a href="#history">History</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="/kiwi.html" class="nav-lock" aria-label="Unlock" title="Unlock">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="11" width="16" height="10" rx="2"/>
+          <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+        </svg>
+      </a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://hips.hearstapps.com/hmg-prod/images/dg023-160cl-64174fea501b8.jpg?resize=2048:*" alt="" loading="eager" referrerpolicy="no-referrer" />
+  </div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">Street &amp; Racing Technology · Est. 2003</div>
+    <h1 class="hero-title">Every Dodge<br><em>SRT</em> ever built.</h1>
+    <p class="hero-sub">
+      From the snake-bitten Viper that started it all to the 1,025-horsepower Demon 170 — the complete archive of America's most unhinged factory hot rods.
+    </p>
+    <div class="hero-cta">
+      <a href="#models" class="btn btn-primary">Browse the lineup →</a>
+      <a href="#history" class="btn btn-ghost">SRT history</a>
+    </div>
+    <div class="hero-strip">
+      <div class="stat"><div class="num">19</div><div class="lbl">SRT Models</div></div>
+      <div class="stat"><div class="num">1,025<em>HP</em></div><div class="lbl">Peak Output</div></div>
+      <div class="stat"><div class="num">8.91<em>s</em></div><div class="lbl">Quickest 1/4 Mile</div></div>
+      <div class="stat"><div class="num">30<em>yr</em></div><div class="lbl">Of Factory Mayhem</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>8.3L V10 Viper</span><span>707 HP Hellcat</span><span>1,025 HP Demon 170</span><span>NHRA Banned</span><span>254 MPH Viper ACR</span><span>35-inch Tires TRX</span><span>6.2L Supercharged Hemi</span><span>Trackhawk 707</span><span>SRT Garage</span>
+    <span>8.3L V10 Viper</span><span>707 HP Hellcat</span><span>1,025 HP Demon 170</span><span>NHRA Banned</span><span>254 MPH Viper ACR</span><span>35-inch Tires TRX</span><span>6.2L Supercharged Hemi</span><span>Trackhawk 707</span><span>SRT Garage</span>
+  </div>
+</div>
+
+<!-- Models -->
+<section id="models">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">The Lineup</div>
+        <h2>Every SRT<br>ever <em>made</em>.</h2>
+      </div>
+      <p>Click any model to dive into its full story, specs, and place in the SRT bloodline. Nineteen factory weapons spanning three decades — from the original snake to the final boss.</p>
+    </div>
+
+    <div class="chips" id="chips">
+      <button class="chip active" data-filter="all">All Models</button>
+      <button class="chip" data-filter="coupe">Coupes</button>
+      <button class="chip" data-filter="sedan">Sedans</button>
+      <button class="chip" data-filter="suv">SUVs / Trucks</button>
+      <button class="chip" data-filter="legend">Legends</button>
+    </div>
+
+    <div class="models" id="models-grid"></div>
+    <style>
+      body.lineup .topbar,body.lineup .hero,body.lineup .marquee,body.lineup .feature,body.lineup #articles,body.lineup #history,body.lineup #newsletter,body.lineup .footer,body.lineup .chips,body.lineup .section-head{display:none!important}
+      body.lineup #models{padding:20px 0}
+      body.lineup .container{max-width:1800px}
+      body.lineup .models{grid-template-columns:repeat(7,1fr)!important;gap:8px!important;margin-top:0!important}
+      body.lineup .model-art{aspect-ratio:16/11}
+      body.lineup .model-year-overlay,body.lineup .model::before{display:none!important}
+      body.lineup .model-body{padding:6px 8px}
+      body.lineup .model-desc,body.lineup .model-cta,body.lineup .model-specs{display:none!important}
+      body.lineup .model-name{font-size:12px;margin:1px 0 0;line-height:1.15}
+      body.lineup .model-year{font-size:9px;letter-spacing:1px}
+      body.lineup .model-badge{font-size:9px;padding:2px 6px;top:6px;left:6px}
+    </style>
+    <script>if(new URLSearchParams(location.search).get('lineup')==='1')document.body.classList.add('lineup');</script>
+  </div>
+</section>
+
+<!-- Feature: Demon -->
+<section id="feature" class="feature">
+  <div class="container feature-grid">
+    <div class="feature-art">
+      <img src="https://hips.hearstapps.com/mtg-prod/65ccfff510997c000887582b/2018-dodge-challenger-srt-demon-at-the-track-05.jpg?w=1200&q=85" alt="Dodge Challenger SRT Demon" referrerpolicy="no-referrer" />
+    </div>
+    <div>
+      <div class="eyebrow">Cover Story</div>
+      <h2>The <em>Demon</em><br>That Broke Drag Racing.</h2>
+      <p>
+        When Dodge unveiled the 2018 Challenger SRT Demon, the NHRA banned it from sanctioned racing before it ever turned a wheel in anger. With 840 horsepower on race fuel, factory drag radials, a TransBrake, and an officially documented 9.65-second quarter mile, the Demon wasn't a car so much as a middle finger aimed at every supercar in the showroom — and most of them on the track.
+      </p>
+      <p>
+        Then came the Demon 170. 1,025 horsepower on E85. The first production car under nine seconds in the quarter mile from the factory. The fastest 0–60 ever recorded by a production vehicle. Then Dodge pulled the plug on the V8 Hemi era — a curtain call worthy of a legend.
+      </p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">1,025</div><div class="lbl">Horsepower</div></div>
+        <div class="stat"><div class="num">945</div><div class="lbl">LB-FT</div></div>
+        <div class="stat"><div class="num">8.91s</div><div class="lbl">1/4 Mile</div></div>
+        <div class="stat"><div class="num">3,300</div><div class="lbl">Built</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Articles -->
+<section id="articles">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">From the Garage</div>
+        <h2>Articles &amp; Deep Dives</h2>
+      </div>
+      <p>Long-form features on the engineering, history, and culture behind SRT.</p>
+    </div>
+
+    <div class="articles">
+      <article class="article">
+        <div class="article-img">
+          <img src="https://cdn.prod.website-files.com/5b4a3b3971d099f78f362505/64f5beff0137bb6a3ff06d7e_2003-Dodge-Viper-SRT-10-Convertible-Red-1B3JR65Z13V501699_001.webp" alt="Dodge Viper SRT-10" loading="lazy" referrerpolicy="no-referrer" />
+          <span class="category">History</span>
+        </div>
+        <div class="article-body">
+          <div class="article-meta">5 min read · Engineering</div>
+          <h3>The Snake Pit: How the Viper Forged SRT</h3>
+          <p>Before the Hellcat. Before the Demon. There was an 8.0L V10, no traction control, and a generation of engineers told to build something insane.</p>
+          <a class="read" href="#" onclick="openArticle('viper-history');return false;">Read more →</a>
+        </div>
+      </article>
+
+      <article class="article">
+        <div class="article-img">
+          <img src="https://www.thedrive.com/wp-content/uploads/images-by-url-td/content/2020/12/DG021_014CHo33oen57322mfm6q40jqlt9muo.jpg?quality=85&w=768" alt="Charger SRT Hellcat" loading="lazy" referrerpolicy="no-referrer" />
+          <span class="category">Engineering</span>
+        </div>
+        <div class="article-body">
+          <div class="article-meta">7 min read · Hellcat</div>
+          <h3>Anatomy of the 6.2L Supercharged HEMI</h3>
+          <p>Inside the IHI 2.4-liter blower, forged internals, and dual-fuel-system trickery that made 707 horsepower a daily-driver reality.</p>
+          <a class="read" href="#" onclick="openArticle('hellcat-engine');return false;">Read more →</a>
+        </div>
+      </article>
+
+      <article class="article">
+        <div class="article-img">
+          <img src="https://hips.hearstapps.com/hmg-prod/images/dg023-160cl-64174fea501b8.jpg" alt="Demon 170" loading="lazy" referrerpolicy="no-referrer" />
+          <span class="category">Culture</span>
+        </div>
+        <div class="article-body">
+          <div class="article-meta">6 min read · Demon 170</div>
+          <h3>Last Call: The End of the Hemi V8 Era</h3>
+          <p>How Dodge spent two years sending off the Charger and Challenger with seven Last Call special editions, culminating in the 1,025-hp Demon 170.</p>
+          <a class="read" href="#" onclick="openArticle('last-call');return false;">Read more →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- History timeline -->
+<section id="history" style="background:#0d0d0d;border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">The Timeline</div>
+        <h2>30 Years of SRT</h2>
+      </div>
+      <p>From PVO badges to Hellcat fender flares — the milestones that shaped Street &amp; Racing Technology.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">1992</div>
+        <div class="tl-title">Team Viper / PVO is Born</div>
+        <div class="tl-text">Bob Lutz greenlights "Team Viper," the small skunkworks group inside Chrysler tasked with building a modern Cobra. It would later become Performance Vehicle Operations (PVO) and, eventually, SRT.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2003</div>
+        <div class="tl-title">SRT Brand Officially Launches</div>
+        <div class="tl-text">The first cars to wear SRT badges arrive: the Neon SRT-4, a turbocharged front-driver that humiliated cars twice its price, and the Viper SRT-10 with its 8.3L 500-hp V10.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2005</div>
+        <div class="tl-title">The 6.1L HEMI Arrives</div>
+        <div class="tl-text">Charger SRT8, Magnum SRT8, and 300C SRT8 all debut with a 425-hp 6.1L HEMI, planting the seeds of the modern muscle revival.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2008</div>
+        <div class="tl-title">Challenger SRT8 Returns</div>
+        <div class="tl-text">The reborn Challenger SRT8 lands with 425 hp, retro styling, and a six-speed manual option. Muscle is officially back on the menu.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2014</div>
+        <div class="tl-title">SRT Brand Folded Back into Dodge</div>
+        <div class="tl-text">The short-lived "SRT" standalone brand experiment ends. SRT becomes a performance sub-badge — but the cars only get crazier.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2015</div>
+        <div class="tl-title">Hellcat. 707 Horsepower.</div>
+        <div class="tl-text">Charger and Challenger SRT Hellcat debut with a 6.2L supercharged HEMI making 707 hp. The horsepower wars are over. Dodge wins.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2018</div>
+        <div class="tl-title">The Demon Drops</div>
+        <div class="tl-text">840 hp. 9.65 in the quarter. Banned by the NHRA before it even raced. Comes with a parachute mount from the factory.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2021</div>
+        <div class="tl-title">Durango SRT Hellcat &amp; TRX</div>
+        <div class="tl-text">A 710-hp three-row SUV and a 702-hp pickup truck. SRT had officially run out of things to NOT supercharge.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2023</div>
+        <div class="tl-title">Demon 170 — Last Call</div>
+        <div class="tl-text">1,025 hp on E85. 1.66-second 0–60. 8.91-second quarter mile. The final V8 SRT car ever built. End of an era.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section id="newsletter" class="news">
+  <div class="container">
+    <div class="eyebrow" style="justify-content:center">Subscribe</div>
+    <h2>Get the SRT Dispatch.</h2>
+    <p>One email a week. New articles, restoration spotlights, auction results, and the occasional rant about why naturally-aspirated should've stayed dead.</p>
+    <form onsubmit="event.preventDefault();this.querySelector('input').value='';alert('You\'re in. Welcome to the garage.');">
+      <input type="email" required placeholder="your@email.com" />
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+      <a href="/kiwi.html" class="lock-btn" aria-label="Unlock" title="Unlock">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="11" width="16" height="10" rx="2"/>
+          <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+        </svg>
+      </a>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="brand">
+        <div class="brand-mark"><img src="/images/srt-logo.png" alt="SRT" /></div>
+        GARAGE
+      </a>
+      <p>An independent enthusiast archive of every Dodge Street &amp; Racing Technology vehicle. Not affiliated with Stellantis or Dodge.</p>
+    </div>
+    <div>
+      <h4>Models</h4>
+      <ul>
+        <li><a href="#models">Vipers</a></li>
+        <li><a href="#models">Challengers</a></li>
+        <li><a href="#models">Chargers</a></li>
+        <li><a href="#models">SUVs &amp; Trucks</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="#articles">Articles</a></li>
+        <li><a href="#history">Timeline</a></li>
+        <li><a href="#feature">Demon Feature</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#newsletter">Newsletter</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">
+    © 2026 SRT Garage. All trademarks property of their respective owners.
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" aria-label="Close dialog">✕</button>
+    <div class="modal-art" id="modalArt"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+  // ---------- DATA ----------
+  const carSVG = (color1, color2, accent) => `
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g${color1.replace('#','')}" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="${color1}"/>
+          <stop offset="1" stop-color="${color2}"/>
+        </linearGradient>
+      </defs>
+      <path d="M40 170 Q 60 130 130 120 L 200 80 Q 250 60 360 60 L 440 80 L 520 120 Q 560 130 570 170 L 560 195 L 470 195 Q 470 220 440 220 Q 410 220 410 195 L 200 195 Q 200 220 170 220 Q 140 220 140 195 L 50 195 Z"
+        fill="url(#g${color1.replace('#','')})" stroke="#fff" stroke-opacity=".15"/>
+      <path d="M225 95 L 360 80 L 425 100 L 410 130 L 220 130 Z" fill="#0a0a0a" stroke="#333" stroke-width="1"/>
+      <circle cx="170" cy="195" r="32" fill="#0a0a0a" stroke="#333" stroke-width="2"/>
+      <circle cx="170" cy="195" r="14" fill="#222"/>
+      <circle cx="440" cy="195" r="32" fill="#0a0a0a" stroke="#333" stroke-width="2"/>
+      <circle cx="440" cy="195" r="14" fill="#222"/>
+      <rect x="290" y="70" width="20" height="120" fill="${accent}" opacity=".25"/>
+      <rect x="540" y="135" width="20" height="14" rx="2" fill="#fff8a0"/>
+    </svg>`;
+
+  const suvSVG = (color1, color2, accent) => `
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="s${color1.replace('#','')}" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="${color1}"/>
+          <stop offset="1" stop-color="${color2}"/>
+        </linearGradient>
+      </defs>
+      <path d="M40 175 Q 50 100 130 95 L 180 60 Q 220 45 420 45 L 470 60 L 530 95 Q 570 100 570 175 L 560 200 L 470 200 Q 470 225 440 225 Q 410 225 410 200 L 200 200 Q 200 225 170 225 Q 140 225 140 200 L 50 200 Z"
+        fill="url(#s${color1.replace('#','')})" stroke="#fff" stroke-opacity=".15"/>
+      <path d="M210 70 L 410 70 L 460 100 L 460 140 L 200 140 Z" fill="#0a0a0a" stroke="#333"/>
+      <line x1="320" y1="70" x2="320" y2="140" stroke="#333"/>
+      <circle cx="170" cy="200" r="34" fill="#0a0a0a" stroke="#333" stroke-width="2"/>
+      <circle cx="170" cy="200" r="14" fill="#222"/>
+      <circle cx="440" cy="200" r="34" fill="#0a0a0a" stroke="#333" stroke-width="2"/>
+      <circle cx="440" cy="200" r="14" fill="#222"/>
+      <rect x="290" y="55" width="22" height="135" fill="${accent}" opacity=".25"/>
+    </svg>`;
+
+  const truckSVG = (color1, color2, accent) => `
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="t${color1.replace('#','')}" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="${color1}"/>
+          <stop offset="1" stop-color="${color2}"/>
+        </linearGradient>
+      </defs>
+      <path d="M30 180 L 30 130 Q 30 100 80 90 L 220 90 L 240 60 L 380 60 L 400 90 L 410 90 L 410 130 L 580 130 L 580 200 L 470 200 Q 470 225 440 225 Q 410 225 410 200 L 200 200 Q 200 225 170 225 Q 140 225 140 200 L 30 200 Z"
+        fill="url(#t${color1.replace('#','')})" stroke="#fff" stroke-opacity=".15"/>
+      <path d="M250 70 L 370 70 L 390 100 L 240 100 Z" fill="#0a0a0a" stroke="#333"/>
+      <circle cx="170" cy="200" r="34" fill="#0a0a0a" stroke="#333" stroke-width="2"/>
+      <circle cx="170" cy="200" r="14" fill="#222"/>
+      <circle cx="440" cy="200" r="34" fill="#0a0a0a" stroke="#333" stroke-width="2"/>
+      <circle cx="440" cy="200" r="14" fill="#222"/>
+    </svg>`;
+
+  const compactSVG = (color1, color2, accent) => `
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="c${color1.replace('#','')}" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="${color1}"/>
+          <stop offset="1" stop-color="${color2}"/>
+        </linearGradient>
+      </defs>
+      <path d="M50 175 Q 60 120 140 110 L 200 70 Q 240 55 380 55 L 440 75 Q 480 85 540 130 L 555 175 L 555 195 L 470 195 Q 470 220 440 220 Q 410 220 410 195 L 200 195 Q 200 220 170 220 Q 140 220 140 195 L 50 195 Z"
+        fill="url(#c${color1.replace('#','')})" stroke="#fff" stroke-opacity=".15"/>
+      <path d="M225 90 L 380 75 L 430 100 L 220 130 Z" fill="#0a0a0a" stroke="#333"/>
+      <circle cx="170" cy="195" r="30" fill="#0a0a0a" stroke="#333" stroke-width="2"/>
+      <circle cx="170" cy="195" r="12" fill="#222"/>
+      <circle cx="440" cy="195" r="30" fill="#0a0a0a" stroke="#333" stroke-width="2"/>
+      <circle cx="440" cy="195" r="12" fill="#222"/>
+      <rect x="290" y="65" width="18" height="125" fill="${accent}" opacity=".25"/>
+    </svg>`;
+
+  const models = [
+    {
+      id:'viper-srt10', name:'Viper SRT-10', year:'2003-2010', cat:'legend', body:'coupe',
+      img:'https://cdn.prod.website-files.com/5b4a3b3971d099f78f362505/64f5beff0137bb6a3ff06d7e_2003-Dodge-Viper-SRT-10-Convertible-Red-1B3JR65Z13V501699_001.webp',
+      colors:['#e10600','#660000','#fff'], svg:carSVG,
+      tag:'Legend',
+      desc:'The car that justified SRT\'s entire existence. 8.3L V10, no traction control, no airbags worth a damn.',
+      hp:500, tq:525, zero:'3.9s', quarter:'11.7s',
+      article:`The Viper SRT-10 was the first vehicle to wear an SRT badge in showrooms, and it did it in the loudest way imaginable: 505 cubic inches of pushrod V10 violence wrapped in a body so wide it barely fit in a parking space. There was no electronic stability control, no traction control, and the side exhausts could and would burn the back of your calf if you got out of the car wrong. It was glorious. The 2008 refresh bumped displacement to 8.4L and output to 600 hp, setting the stage for the final-generation Viper that would arrive in 2013.`
+    },
+    {
+      id:'neon-srt4', name:'Neon SRT-4', year:'2003-2005', cat:'legend', body:'sedan',
+      img:'/images/srt-neon-srt4-v2.jpg',
+      colors:['#ffd400','#7a6500','#000'], svg:compactSVG,
+      tag:'Sleeper',
+      desc:'A turbocharged front-wheel-drive Neon that humiliated WRXs and Civic Si owners for half the price.',
+      hp:230, tq:250, zero:'5.6s', quarter:'13.9s',
+      article:`The most blue-collar SRT ever sold. A turbo 2.4L making 230 hp (later 230 with the ACR package, plus a no-charge LSD), front-wheel drive, and a starting price under $20,000. The SRT-4 single-handedly created the modern compact tuner segment in America and proved that SRT could engineer something that wasn't powered by a fire-breathing V-anything. Today it's a cult classic, and clean ones are appreciating fast.`
+    },
+    {
+      id:'ram-srt10', name:'Ram SRT-10', year:'2004-2006', cat:'legend', body:'truck',
+      img:'/images/srt-ram-srt10.jpg',
+      colors:['#e10600','#660000','#fff'], svg:truckSVG,
+      tag:'V10 Truck',
+      desc:'A Viper V10 dropped into a Ram 1500. Held the Guinness record for fastest production truck at 154 mph.',
+      hp:500, tq:525, zero:'4.9s', quarter:'13.2s',
+      article:`Take the 8.3L V10 out of a Viper SRT-10. Bolt it into a regulation-cab Ram 1500. Lower the suspension, fit it with 22-inch wheels and a six-speed manual, and you have the Ram SRT-10 — a pickup truck that hit 60 mph in 4.9 seconds and held the Guinness World Record as the fastest production pickup truck on Earth at 154.587 mph. A four-door Quad Cab version arrived in 2005 with an automatic transmission, slightly less power (510 hp), and the only "family-friendly" V10 truck ever sold. Production ended in 2006 after about 10,000 units. Today they're collector items, and clean ones command serious money.`
+    },
+    {
+      id:'caliber-srt4', name:'Caliber SRT4', year:'2008-2009', cat:'legend', body:'sedan',
+      img:'/images/srt-caliber-srt4-v2.jpg',
+      colors:['#ff6600','#5a2200','#000'], svg:compactSVG,
+      tag:'Turbo Hatch',
+      desc:'The spiritual sequel to the Neon SRT-4. 285 hp from a turbo 2.4L in a five-door hatchback.',
+      hp:285, tq:265, zero:'5.9s', quarter:'14.2s',
+      article:`When the Neon was discontinued, SRT needed a new compact platform — and the Caliber hatchback got the call. The Caliber SRT4 packed a turbocharged 2.4L making 285 hp and 265 lb-ft, all routed through a six-speed manual to the front wheels via a limited-slip differential. It featured Recaro seats, a hood scoop, and a strut-tower brace from the factory. It never quite captured the cult status of the original SRT-4, partly because the Caliber\'s base model was widely panned, but enthusiasts who actually drove one knew it was a genuinely fast hatchback. Production ended after just two model years when the recession killed off most of Chrysler\'s niche performance variants.`
+    },
+    {
+      id:'magnum-srt8', name:'Magnum SRT8', year:'2006-2008', cat:'legend', body:'sedan',
+      img:'/images/srt-magnum-srt8.jpg',
+      colors:['#222','#000','#fff'], svg:carSVG,
+      tag:'Wagon',
+      desc:'A 425-hp HEMI station wagon. Possibly the most American vehicle ever conceived.',
+      hp:425, tq:420, zero:'4.9s', quarter:'13.4s',
+      article:`Yes, this existed. Yes, it was real. Dodge took the LX-platform Magnum wagon, dropped a 6.1L HEMI under the hood, and called it a day. The result was a four-door, five-passenger, 425-hp grocery hauler that would do the quarter mile in the high 13s. The Magnum line was killed in 2008 but the SRT8 has become one of the most quietly desirable Mopars of its era.`
+    },
+    {
+      id:'300c-srt8', name:'Chrysler 300C SRT8', year:'2005-2014', cat:'sedan', body:'sedan',
+      img:'https://platform.cstatic-images.com/large/in/v2/5252347f-1989-552c-8a51-1ab9f26d792f/279a15a6-a4b4-4a09-a68a-b3defad13a9d/URxz_t9ujzA6r1-mx5G7ANBcmsA.jpg',
+      colors:['#1a1a1a','#000','#bb8a00'], svg:carSVG,
+      tag:'Cousin',
+      desc:'Technically a Chrysler, spiritually an SRT. Same 6.1L HEMI, gangster-grade styling.',
+      hp:425, tq:420, zero:'4.9s', quarter:'13.5s',
+      article:`The 300C SRT8 wore Chrysler badges but was developed by the same Auburn Hills team that built the Charger and Magnum SRT8s. The 6.1L HEMI was a slightly detuned version of the eventual 392, and the chassis tuning was unmistakably SRT — meaning brutal in a straight line and surprisingly composed in the corners.`
+    },
+    {
+      id:'charger-srt8', name:'Charger SRT8', year:'2006-2014', cat:'sedan', body:'sedan',
+      img:'/images/srt-charger-srt8.jpg',
+      colors:['#444','#111','#e10600'], svg:carSVG,
+      tag:'Modern Era',
+      desc:'The four-door muscle sedan that brought the 6.1L (and later 6.4L) HEMI to the masses.',
+      hp:470, tq:470, zero:'4.4s', quarter:'12.9s',
+      article:`The Charger SRT8 picked up the LX-platform muscle sedan torch and ran with it for almost a decade. Output started at 425 hp from the 6.1L HEMI, then jumped to 470 hp when the 6.4L "392" arrived in 2011. With four doors, five seats, and a trunk, the Charger SRT8 made the case that you didn't have to choose between a family car and something that could embarrass a Mustang.`
+    },
+    {
+      id:'jeep-srt8', name:'Jeep Grand Cherokee SRT8', year:'2006-2010', cat:'suv', body:'suv',
+      img:'https://platform.cstatic-images.com/large/in/v2/d22bbaa4-7e08-4b8d-b0f1-4d8cc676f60e/924897cc-8120-48d5-a4d3-20377e9133b7/W275fiIM4hFhdBYetxaCoQH8D5w.jpg',
+      colors:['#1a1a1a','#000','#e10600'], svg:suvSVG,
+      tag:'Family Hauler',
+      desc:'The first proper performance SUV from Detroit. 6.1L HEMI, 0-60 in under 5 seconds.',
+      hp:420, tq:420, zero:'4.8s', quarter:'13.3s',
+      article:`Before the Trackhawk, before the Durango Hellcat, there was the WK Grand Cherokee SRT8. 420 hp, lowered ride height, four-piston Brembos, and a stance like it was always slightly angry. It set the template for every fast Jeep that would follow.`
+    },
+    {
+      id:'challenger-srt8', name:'Challenger SRT8', year:'2008-2014', cat:'coupe', body:'coupe',
+      img:'/images/srt-challenger-srt8.jpg',
+      colors:['#e60000','#700000','#fff'], svg:carSVG,
+      tag:'Reborn',
+      desc:'The retro-styled coupe that launched the modern muscle car renaissance.',
+      hp:470, tq:470, zero:'4.6s', quarter:'12.7s',
+      article:`When the Challenger SRT8 launched in 2008, it sold out almost instantly. Only 6,400 First Edition cars were built for North America, all painted Hemi Orange. The 6.1L (later 6.4L) HEMI, available six-speed manual, and unapologetically retro styling tapped into nostalgia in a way nothing else on the market did. It would carry the Challenger nameplate for the next 15 years.`
+    },
+    {
+      id:'viper-gen5', name:'SRT Viper / Viper TA', year:'2013-2017', cat:'coupe', body:'coupe',
+      img:'/images/viper-ta.png',
+      colors:['#e10600','#5a0000','#fff'], svg:carSVG,
+      tag:'Final Snake',
+      desc:'The fifth and final Viper. 645 hp from an 8.4L V10. ACR variant set 13 production-car lap records.',
+      hp:645, tq:600, zero:'3.5s', quarter:'11.5s',
+      article:`The Gen 5 Viper was sold briefly without "Dodge" badging — just "SRT" — before reverting to "Dodge Viper" in 2015. Output peaked at 645 hp, and the 2016 Viper ACR (American Club Racer) was a track weapon so capable it set 13 production-car lap records, including Laguna Seca. Production ended in 2017. There has not been a Viper since.`
+    },
+    {
+      id:'jeep-srt-wk2', name:'Grand Cherokee SRT (WK2)', year:'2012-2021', cat:'suv', body:'suv',
+      img:'/images/srt-jeep-srt-wk2.jpg',
+      colors:['#222','#000','#bb8a00'], svg:suvSVG,
+      tag:'Refined',
+      desc:'The second-gen Grand Cherokee SRT brought a 6.4L HEMI, an eight-speed auto, and 475 hp.',
+      hp:475, tq:470, zero:'4.3s', quarter:'12.8s',
+      article:`The WK2 Grand Cherokee SRT was the everyday-usable performance SUV. 475 hp, an eight-speed automatic, full-time AWD, and selectable drive modes including a launch control system that would scrap the front tires off the line. It remained in production for nearly a decade and became the foundation for the eventual Trackhawk.`
+    },
+    {
+      id:'charger-hellcat', name:'Charger SRT Hellcat', year:'2015-2023', cat:'sedan', body:'sedan',
+      img:'https://www.thedrive.com/wp-content/uploads/images-by-url-td/content/2020/12/DG021_014CHo33oen57322mfm6q40jqlt9muo.jpg?quality=85&w=768',
+      colors:['#222','#000','#e10600'], svg:carSVG,
+      tag:'707 HP',
+      desc:'A 707-hp four-door sedan you could buy at a Dodge dealer. The horsepower wars officially ended here.',
+      hp:707, tq:650, zero:'3.4s', quarter:'10.9s',
+      article:`In 2015, Dodge did the unthinkable: they put a 6.2L supercharged HEMI making 707 hp into a four-door family sedan. The Charger Hellcat could do the quarter mile in the 10s on factory tires. It had a top speed of 204 mph. It came with two key fobs — a black one limited to 500 hp, and a red one that unlocked the full 707. Eventually it would grow into the Charger Hellcat Redeye Widebody Jailbreak — yes, that was the actual name — making 807 hp.`
+    },
+    {
+      id:'challenger-hellcat', name:'Challenger SRT Hellcat', year:'2015-2023', cat:'coupe', body:'coupe',
+      img:'/images/srt-challenger-hellcat.jpg',
+      colors:['#e10600','#5a0000','#fff'], svg:carSVG,
+      tag:'707-807 HP',
+      desc:'The Hellcat coupe. 707 horsepower from launch, 807 from the Redeye Jailbreak.',
+      hp:807, tq:707, zero:'3.4s', quarter:'10.5s',
+      article:`The Challenger Hellcat became the defining muscle car of its decade. Available with a six-speed manual through almost its entire run (a vanishingly rare combination at this power level), it spawned a whole tribe of variants: Redeye, Widebody, Super Stock, Jailbreak, Hellcat Black Ghost. The base Hellcat made 707 hp; the Redeye made 797; the Jailbreak hit 807; the Super Stock made 807 with drag-radial-style street tires from the factory.`
+    },
+    {
+      id:'jeep-trackhawk', name:'Grand Cherokee Trackhawk', year:'2018-2021', cat:'suv', body:'suv',
+      img:'/images/srt-jeep-trackhawk.jpg',
+      colors:['#0a0a0a','#000','#e10600'], svg:suvSVG,
+      tag:'Hellcat SUV',
+      desc:'The Hellcat-powered Grand Cherokee. 707 hp, AWD, 0-60 in 3.5 seconds.',
+      hp:707, tq:645, zero:'3.5s', quarter:'11.6s',
+      article:`Take the Grand Cherokee SRT, swap in the Hellcat\'s supercharged 6.2L V8, and you get the Trackhawk: a five-passenger family SUV that would do the quarter mile in 11.6 seconds and out-launch most supercars on its all-wheel-drive system. There was no Demon-style theater here — just a Sasquatch-grade SUV that obliterated unsuspecting Tesla drivers at every stoplight.`
+    },
+    {
+      id:'demon', name:'Challenger SRT Demon', year:'2018', cat:'coupe', body:'coupe',
+      img:'/images/srt-demon.jpg',
+      colors:['#e10600','#3d0000','#ffd400'], svg:carSVG,
+      tag:'NHRA Banned',
+      desc:'840 horsepower on race fuel. Factory drag radials. Banned by the NHRA before it ever raced.',
+      hp:840, tq:770, zero:'2.3s', quarter:'9.65s',
+      article:`The Demon arrived with a list of "world\'s firsts" longer than most cars\' option sheets: first production car to lift the front wheels off the line (officially documented by Guinness), first factory car with a TransBrake, first factory car on drag radials, first to run a sub-10-second quarter mile in stock form. NHRA banned it from sanctioned racing because it lacked a roll cage. Only 3,300 were built. Demon hats and crate keys included.`
+    },
+    {
+      id:'durango-hellcat', name:'Durango SRT Hellcat', year:'2021, 2023+', cat:'suv', body:'suv',
+      img:'/images/srt-durango-hellcat.jpg',
+      colors:['#444','#111','#e10600'], svg:suvSVG,
+      tag:'3-Row Hellcat',
+      desc:'A 710-hp three-row family SUV. 7-passenger seating, 8,700-lb tow rating, 11.5-second quarter mile.',
+      hp:710, tq:645, zero:'3.5s', quarter:'11.5s',
+      article:`Originally sold for one model year (2021) as a "limited production" run of 2,000-ish units, the Durango Hellcat returned in 2023 due to demand. It seats up to seven, tows 8,700 lbs, and out-runs most sports cars in a straight line. There has never been anything quite like it, and given the death of the Hemi, there probably never will be again.`
+    },
+    {
+      id:'durango-srt', name:'Durango SRT 392', year:'2018-2024', cat:'suv', body:'suv',
+      img:'/images/srt-durango-srt.jpg',
+      colors:['#222','#000','#bb8a00'], svg:suvSVG,
+      tag:'Family Hot Rod',
+      desc:'475-hp, 6.4L naturally-aspirated three-row SUV with proper SRT chassis tuning.',
+      hp:475, tq:470, zero:'4.4s', quarter:'12.9s',
+      article:`The Durango SRT 392 was the everyman\'s muscle SUV — naturally aspirated, three rows, AWD, 475 hp, and far more affordable than the Hellcat variant. For families that needed to haul kids to soccer practice and embarrass V6 Camaros on the way home, it was perfect.`
+    },
+    {
+      id:'ram-trx', name:'Ram 1500 TRX', year:'2021-2024', cat:'suv', body:'truck',
+      img:'/images/srt-ram-trx.jpg',
+      colors:['#0a3a0a','#000','#ffd400'], svg:truckSVG,
+      tag:'Apex Predator',
+      desc:'A 702-hp Hellcat-powered, Raptor-eating off-road pickup truck. Yes, really.',
+      hp:702, tq:650, zero:'3.7s', quarter:'12.4s',
+      article:`Officially a Ram, spiritually an SRT. The TRX was the answer to the Ford Raptor — except instead of a twin-turbo V6, Ram dropped in the Hellcat\'s 6.2L supercharged V8. 702 horsepower, 35-inch tires, 13 inches of suspension travel, and a 0-60 of 3.7 seconds in a vehicle that weighs over 6,300 pounds. Discontinued in 2024 alongside the rest of the Hemi V8 lineup.`
+    },
+    {
+      id:'demon-170', name:'Challenger SRT Demon 170', year:'2023', cat:'coupe', body:'coupe',
+      img:'/images/srt-demon-170.jpg',
+      colors:['#e10600','#3d0000','#ffd400'], svg:carSVG,
+      tag:'Final Boss',
+      desc:'1,025 hp on E85. 1.66s 0-60. 8.91s quarter mile. The fastest production car ever made.',
+      hp:1025, tq:945, zero:'1.66s', quarter:'8.91s',
+      article:`The Demon 170 closed the book on the Hemi V8 era in the loudest way imaginable. 1,025 horsepower on E85 fuel (still 900 on pump gas). The first production car to break into the 8s in the quarter mile. The fastest 0-60 ever recorded by a production vehicle, period. Only 3,300 were built — a deliberate echo of the original Demon. The car came with a printed 12x18 photo of itself, a Demon 170 jacket, and the keys to the loudest middle finger Detroit ever sent off into retirement.`
+    }
+  ];
+
+  const articles = {
+    'viper-history':{
+      title:'The Snake Pit: How the Viper Forged SRT',
+      year:'1992 — 2017',
+      art: carSVG('#e10600','#5a0000','#fff'),
+      body:[
+        `In 1988, Bob Lutz handed a small group of Chrysler engineers a sketch and a directive: build a modern Cobra. No focus groups. No platform sharing. No compromises.`,
+        `What came out the other end was the 1992 Dodge Viper RT/10 — an 8.0L V10 (derived from a Lamborghini-engineered iron-block truck engine and converted to aluminum) wedged into a fiberglass body, with side-exit exhausts, no traction control, no anti-lock brakes, and no airbags. Doors and a roof were optional extras.`,
+        `That team became "Team Viper," then "Specialty Vehicle Engineering," then "Performance Vehicle Operations" (PVO), and eventually, in 2003, the SRT (Street and Racing Technology) badge as we know it today. Every fast Mopar of the next 30 years traces its lineage directly back to the Viper program.`,
+        `The Viper itself went through five generations, peaking with the 645-hp Gen 5 Viper ACR — a track car so capable it broke 13 production-car lap records before production ended in 2017. There has not been a Viper since, and the engineers who designed it have largely scattered. But the SRT philosophy — too much engine, too little compromise — outlived the snake.`
+      ]
+    },
+    'hellcat-engine':{
+      title:'Anatomy of the 6.2L Supercharged HEMI',
+      year:'2015 — 2023',
+      art: carSVG('#222','#000','#e10600'),
+      body:[
+        `The Hellcat HEMI shares its bore spacing with the 6.4L 392, but virtually nothing else. The block is reinforced. The crank is forged. The rods are forged powder-metal. The pistons are forged aluminum with sodium-filled exhaust valves to handle thermal load.`,
+        `On top sits an IHI twin-screw supercharger displacing 2.4 liters, spinning at up to 14,600 rpm and producing roughly 11.6 psi of boost in the original Hellcat. The Redeye and Demon variants got a larger 2.7L blower spinning faster and pushing more boost — peaking at 14.5 psi in the Demon 170.`,
+        `Crucially, the Hellcat was engineered with two separate fuel systems: one for premium pump gas and one for race fuel (in Demon and Demon 170). The Demon 170\'s ECU could detect E85 and unlock the full 1,025 hp; on pump gas, it limited output to "only" about 900.`,
+        `The supercharger snout is driven off a dedicated belt routed underneath the supercharger itself — a layout that allowed the entire supercharger and intercooler assembly to sit lower in the engine bay, helping clearance under the hood scoop. It also created the Hellcat\'s signature whine, audible from approximately three zip codes away.`
+      ]
+    },
+    'last-call':{
+      title:'Last Call: The End of the Hemi V8 Era',
+      year:'2022 — 2024',
+      art: carSVG('#e10600','#3d0000','#ffd400'),
+      body:[
+        `In August 2022, Dodge announced that the Charger and Challenger as we knew them — body-on-frame LX-platform muscle with V8 power — would end production after the 2023 model year. To send them off, Dodge committed to building seven "Last Call" special editions.`,
+        `They were: Shakedown, Swinger (in both Challenger and Charger flavors), Black Ghost, Super Bee, King Daytona, and finally — the Demon 170. Each one paid tribute to a piece of Mopar history. The Black Ghost honored a legendary 1970 Challenger spotted street-racing in 1970s Detroit. King Daytona referenced Buddy Baker\'s 1970 NASCAR record. Super Bee borrowed the name from the 1968 Coronet.`,
+        `The Demon 170 was the encore. 1,025 horsepower. The first production car under nine seconds in the quarter mile. The fastest 0-60 ever measured. Dodge limited production to exactly 3,300 units, mirroring the original 2018 Demon. They sold out essentially the moment order books opened.`,
+        `The Hemi V8 isn\'t entirely dead — it has since been confirmed for a return in the Charger lineup — but the original LX-platform muscle car era is over for good. The Last Call cars will be remembered as the loudest, fastest, and most ridiculous send-off any nameplate ever got.`
+      ]
+    }
+  };
+
+  // ---------- RENDER MODELS ----------
+  const grid = document.getElementById('models-grid');
+  function bodyToType(body){
+    return body==='truck'||body==='suv' ? 'suv' :
+           body==='sedan' ? 'sedan' : 'coupe';
+  }
+  function render(filter='all'){
+    grid.innerHTML='';
+    models
+      .filter(m => filter==='all' || m.cat===filter || (filter==='legend' && m.cat==='legend'))
+      .forEach(m => {
+        const svgFn = m.body==='suv' ? suvSVG : m.body==='truck' ? truckSVG : m.body==='compact' ? compactSVG : carSVG;
+        const visual = m.img
+          ? `<img src="${m.img}" alt="${m.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML=this.dataset.fallback" data-fallback='${svgFn(m.colors[0],m.colors[1],m.colors[2]).replace(/'/g,"&#39;")}' /><div class="scrim"></div>`
+          : svgFn(m.colors[0],m.colors[1],m.colors[2]);
+        const card = document.createElement('div');
+        card.className='model';
+        card.setAttribute('role','button');
+        card.setAttribute('tabindex','0');
+        card.setAttribute('aria-label',`Open details for ${m.name}`);
+        card.innerHTML = `
+          <div class="model-art">
+            <span class="model-badge">${m.tag}</span>
+            ${visual}
+            <span class="model-year-overlay">${m.year}</span>
+          </div>
+          <div class="model-body">
+            <div class="model-year">${m.year}</div>
+            <div class="model-name">${m.name}</div>
+            <p class="model-desc">${m.desc}</p>
+            <div class="model-specs">
+              <div class="spec"><b>${m.hp}</b><span>HP</span></div>
+              <div class="spec"><b>${m.tq}</b><span>LB-FT</span></div>
+              <div class="spec"><b>${m.zero}</b><span>0-60</span></div>
+              <div class="spec"><b>${m.quarter}</b><span>1/4 MI</span></div>
+            </div>
+            <div class="model-cta"><span>View Profile</span></div>
+          </div>`;
+        card.addEventListener('click',()=>openModel(m));
+        card.addEventListener('keydown',e=>{
+          if(e.key==='Enter'||e.key===' '){e.preventDefault();openModel(m);}
+        });
+        grid.appendChild(card);
+      });
+    if(window.observeReveal) window.observeReveal(grid);
+  }
+  render();
+
+  // ---------- FILTERS ----------
+  document.getElementById('chips').addEventListener('click',e=>{
+    if(e.target.classList.contains('chip')){
+      document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+      e.target.classList.add('active');
+      render(e.target.dataset.filter);
+    }
+  });
+
+  // ---------- MODAL ----------
+  const modal = document.getElementById('modal');
+  const modalArt = document.getElementById('modalArt');
+  const modalBody = document.getElementById('modalBody');
+  function openModel(m){
+    const svgFn = m.body==='suv' ? suvSVG : m.body==='truck' ? truckSVG : m.body==='compact' ? compactSVG : carSVG;
+    const fallbackSvg = svgFn(m.colors[0],m.colors[1],m.colors[2]);
+    modalArt.innerHTML = m.img
+      ? `<img src="${m.img}" alt="${m.name}" referrerpolicy="no-referrer" onerror="this.outerHTML=this.dataset.fallback" data-fallback='${fallbackSvg.replace(/'/g,"&#39;")}' /><div class="modal-art-scrim"></div>`
+      : fallbackSvg;
+    modalBody.innerHTML = `
+      <div class="year">${m.year}</div>
+      <h2 id="modalTitle">${m.name}</h2>
+      <p>${m.article}</p>
+      <div class="modal-specs">
+        <div class="box"><b>${m.hp}</b><span>Horsepower</span></div>
+        <div class="box"><b>${m.tq}</b><span>LB-FT Torque</span></div>
+        <div class="box"><b>${m.zero}</b><span>0-60 MPH</span></div>
+        <div class="box"><b>${m.quarter}</b><span>1/4 Mile</span></div>
+      </div>`;
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function openArticle(id){
+    const a = articles[id];
+    if(!a) return;
+    modalArt.innerHTML = a.art;
+    modalBody.innerHTML = `
+      <div class="year">${a.year}</div>
+      <h2 id="modalTitle">${a.title}</h2>
+      ${a.body.map(p=>`<p>${p}</p>`).join('')}`;
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  window.openArticle = openArticle;
+  document.getElementById('modalClose').addEventListener('click',closeModal);
+  modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+  function closeModal(){modal.classList.remove('open');document.body.style.overflow=''}
+
+  // Mobile menu
+  // ---------- SCROLL REVEAL ----------
+  window.__revealIO = null;
+  window.observeReveal = function(root){
+    if(!('IntersectionObserver' in window)) return;
+    if(!window.__revealIO){
+      window.__revealIO = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); window.__revealIO.unobserve(e.target); }});
+      },{threshold:.01, rootMargin:'0px 0px -20px 0px'});
+    }
+    const scope = root || document;
+    const targets = scope.querySelectorAll('.model:not(.reveal), .article:not(.reveal), .feature-grid > *:not(.reveal), .tl-item:not(.reveal)');
+    targets.forEach(el=>{
+      el.classList.add('reveal');
+      window.__revealIO.observe(el);
+      // immediate-show if already in viewport
+      const r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight && r.bottom > 0) el.classList.add('in');
+    });
+  };
+  observeReveal();
+
+  document.getElementById('menuToggle').addEventListener('click',()=>{
+    document.getElementById('nav').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
